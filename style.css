@@ -1,0 +1,575 @@
+/* =================================================================== */
+/* ÍNDICE:
+/* 1. ESTILOS GERAIS E VARIÁVEIS (:root, body, etc.)
+/* 2. CLASSES UTILITÁRIAS (container, grid, etc.)
+/* 3. CABEÇALHO (HEADER) E NAVEGAÇÃO
+/* 4. SEÇÃO INÍCIO (HERO)
+/* 5. SEÇÃO SERVIÇOS
+/* 6. SEÇÃO PORTFÓLIO (SLIDER)
+/* 7. SEÇÃO CONTATO (FORMULÁRIO E FAQ)
+/* 8. RODAPÉ (FOOTER)
+/* 9. ELEMENTOS INTERATIVOS (Botão Voltar ao Topo, Animações)
+/* 10. MEDIA QUERIES (Estilos para telas menores)
+/* =================================================================== */
+
+
+/* --- 1. ESTILOS GERAIS E VARIÁVEIS --- */
+/* ------------------------------------------------------------------- */
+
+/* :root permite criar variáveis CSS para usar em todo o site.
+   Facilita a mudança de cores e fontes em um só lugar. */
+:root {
+  --bg-color: #0f0f0f;
+  --text-color: #f9f9f9;
+  --accent-color: #fbbf24;
+  --accent-color-rgb: 251, 191, 36; /* Versão RGB da cor para usar com transparência */
+  --neutral-color: #1f1f1f;
+  --font-main: 'Poppins', sans-serif;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset básico para remover margens e paddings padrão dos navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Faz com que padding e border não aumentem a largura dos elementos */
+}
+
+/* Define a rolagem suave para todo o documento ao clicar em links internos */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos principais do corpo da página */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+  overflow-x: hidden; /* Impede a rolagem horizontal indesejada */
+}
+
+
+/* --- 2. CLASSES UTILITÁRIAS --- */
+/* ------------------------------------------------------------------- */
+
+/* Centraliza o conteúdo e define uma largura máxima */
+.container {
+  max-width: 1200px;
+  margin: auto; /* Truque para centralizar horizontalmente */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Define o espaçamento vertical padrão para as seções */
+section {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+/* Título principal de cada seção */
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 5vw, 2.2rem); /* Tamanho de fonte responsivo */
+  color: var(--accent-color);
+}
+
+/* Subtítulo usado em algumas seções para dar mais contexto */
+.section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: -0.5rem auto 3rem;
+  color: #ccc;
+}
+
+/* Classe genérica para criar layouts em grade */
+.grid {
+  display: grid;
+  gap: 2.5rem; /* Espaço entre os itens da grade */
+}
+
+
+/* --- 3. CABEÇALHO (HEADER) E NAVEGAÇÃO --- */
+/* ------------------------------------------------------------------- */
+
+header {
+  background-color: var(--neutral-color);
+  padding: 1rem 0;
+  position: sticky; /* Mantém o header fixo no topo ao rolar */
+  top: 0;
+  z-index: 1000; /* Garante que o header fique acima de outros elementos */
+  box-shadow: var(--shadow);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between; /* Coloca a logo de um lado e os links do outro */
+  align-items: center; /* Alinha verticalmente os itens */
+}
+
+header nav ul {
+  display: flex;
+  list-style: none; /* Remove os marcadores da lista */
+  gap: 1.5rem; /* Espaço entre os links */
+}
+
+header nav a {
+  color: var(--text-color);
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: 500;
+  position: relative; /* Necessário para o efeito de sublinhado animado */
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+/* Efeito de sublinhado que aparece ao passar o mouse */
+header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0); /* Começa invisível (escala 0) */
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+header nav a:hover::after,
+header nav a:focus::after {
+  transform: scaleX(1); /* Fica visível (escala 1) */
+  transform-origin: left;
+}
+
+/* Classe adicionada via JS para destacar o link da seção atual */
+header nav a.active {
+  color: var(--accent-color);
+}
+
+/* --- ESTILOS DA LOGO NO CABEÇALHO --- */
+.logo-link {
+  /* Garante que o link não tenha decorações estranhas */
+  text-decoration: none; 
+}
+
+.logo-img {
+  /* Define uma altura fixa para a logo. Ajuste este valor como preferir. */
+  height: 70px; 
+  
+  /* A largura se ajustará automaticamente para manter a proporção */
+  width: auto; 
+
+  /* Garante que a imagem se alinhe bem com os links do menu */
+  vertical-align: middle; 
+}
+
+
+/* --- ESTILOS DA SEÇÃO SOBRE MIM --- */
+
+/* Layout principal com 2 colunas: foto e texto */
+.sobre-mim-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* A foto ocupa 1 parte, o texto 2 partes */
+  align-items: center; /* Alinha verticalmente a foto e o texto */
+  gap: 3rem; /* Espaço entre a foto e o texto */
+}
+
+/* Estilo da imagem */
+.sobre-mim-foto img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do bloco de texto */
+.sobre-mim-texto h3 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.sobre-mim-texto p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+/* Estilo do botão de "Call to Action" */
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #facc15;
+  transform: scale(1.05);
+}
+
+/* --- ESTILOS DA SUBSEÇÃO "MEU PROCESSO" --- */
+
+.processo-container {
+  margin-top: 6rem; /* Espaço acima da subseção */
+}
+
+.subtitulo-secao {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+}
+
+.processo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4 colunas que se adaptam */
+  gap: 2rem;
+}
+
+.processo-item {
+  text-align: center;
+  background-color: var(--neutral-color);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.processo-icone {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.processo-item h4 {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .sobre-mim-layout {
+    grid-template-columns: 1fr; /* Em telas pequenas, a foto fica em cima do texto */
+    text-align: center;
+  }
+}
+
+/* --- 4. SEÇÃO INÍCIO (HERO) --- */
+/* ------------------------------------------------------------------- */
+
+.hero {
+  min-height: 100vh; /* Faz a seção ocupar a altura total da tela */
+  position: relative;
+  display: flex; /* Usado para centralizar o texto verticalmente e horizontalmente */
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Remove o padding padrão da seção */
+}
+
+/* Vídeo de fundo */
+.video-destaque {
+  position: absolute; /* Posiciona o vídeo em relação à seção .hero */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo cubra toda a área sem distorcer */
+  filter: brightness(0.5); /* Escurece o vídeo para o texto ficar legível */
+  z-index: -1; /* Coloca o vídeo atrás do texto */
+}
+
+/* Caixa de texto sobre o vídeo */
+.hero-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+  max-width: 800px;
+}
+
+
+/* --- 5. SEÇÃO SERVIÇOS --- */
+/* ------------------------------------------------------------------- */
+
+.servicos-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+}
+
+/* Estilo principal do card de serviço */
+.servico-card {
+  background-color: var(--neutral-color);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.servico-card:hover {
+  transform: translateY(-8px); /* Efeito de "flutuar" */
+  border-color: var(--accent-color);
+}
+
+.servico-icone {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.servico-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Caixa de destaque para a lista de equipamentos */
+.equipamentos {
+  text-align: center;
+  margin-top: 5rem;
+  padding: 2rem;
+  background-color: var(--neutral-color);
+  border-radius: 16px;
+}
+
+
+/* --- 6. SEÇÃO PORTFÓLIO (SLIDER) --- */
+/* ------------------------------------------------------------------- */
+
+.portfolio-slider {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  width: 60%; /* Define a largura para que os slides vizinhos fiquem visíveis */
+  transition: all 0.5s ease;
+}
+
+/* Estilo para os cards que NÃO estão no centro */
+.swiper-slide .portfolio-card {
+  transform: scale(0.8);
+  filter: blur(4px);
+  opacity: 0.5;
+}
+
+/* Estilo para o card que está ATIVO no centro */
+.swiper-slide-active .portfolio-card {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+}
+
+/* Estilos das setas de navegação do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--accent-color);
+}
+
+/* Estilos dos cards de portfólio (a estrutura interna) */
+.portfolio-card {
+  background-color: var(--neutral-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-video-container {
+  position: relative;
+  padding-top: 56.25%; /* Truque para manter a proporção de vídeo 16:9 */
+  height: 0;
+}
+
+.card-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background-color: rgba(var(--accent-color-rgb), 0.1);
+  color: var(--accent-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+
+/* --- 7. SEÇÃO CONTATO (FORMULÁRIO E FAQ) --- */
+/* ------------------------------------------------------------------- */
+
+/* Links de contato direto (email, whatsapp) */
+.contato-direto {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.contato-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--neutral-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.contato-link:hover {
+  background-color: #333;
+}
+
+/* Formulário de contato */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FAQ (Perguntas Frequentes) */
+.faq-container {
+  max-width: 700px;
+  margin: 4rem auto 0;
+}
+
+/* Estilo do acordeão de perguntas */
+.faq-item details {
+  background: var(--neutral-color);
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.faq-item summary {
+  padding: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  list-style: none; /* Remove o marcador de seta padrão */
+}
+
+/* Cria uma seta personalizada para o acordeão */
+.faq-item summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1.2rem;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+/* Gira a seta quando o acordeão está aberto */
+.faq-item details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* Estilo do texto da resposta */
+.faq-item p {
+  padding: 0 1.2rem 1.2rem;
+  color: #ccc;
+  border-top: 1px solid #333;
+  margin-top: 0.5rem;
+}
+
+
+/* --- 8. RODAPÉ (FOOTER) --- */
+/* ------------------------------------------------------------------- */
+
+footer {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: var(--neutral-color);
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+/* --- 9. ELEMENTOS INTERATIVOS --- */
+/* ------------------------------------------------------------------- */
+
+/* Animação de entrada para as seções */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Botão de Voltar ao Topo */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0; /* Começa invisível */
+  transform: scale(0.8);
+  pointer-events: none; /* Não pode ser clicado quando invisível */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Classe adicionada via JS para mostrar o botão */
+#back-to-top.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+
+/* --- 10. MEDIA QUERIES (Responsividade) --- */
+/* ------------------------------------------------------------------- */
+
+/* Estilos para telas com largura máxima de 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  /* Esconde o menu de navegação normal em telas pequenas
+     (aqui entraria a lógica de um menu hambúrguer) */
+  header nav ul {
+   display: none;
+  }
+  
+  /* Ajusta a largura do slide do portfólio para ocupar mais a tela */
+  .swiper-slide {
+    width: 80%;
+  }
+
+  /* Faz com que os cards de serviço ocupem uma coluna só */
+  .servicos-grid {
+    grid-template-columns: 1fr;
+  }
+}
