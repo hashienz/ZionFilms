@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -46,15 +47,15 @@
     </section>
 
 
-    <!-- AREA DO SOBRE EU -->
+    <!-- AREA DO SOBRE MIM -->
     <section id="sobre" class="container">
   <h2>Quem Sou Eu</h2>
 
   <div class="sobre-mim-layout">
-    <div class="sobre-mim-foto">
+  <div class="sobre-mim-foto" data-aos="fade-right">
       <img src="img/Foto mnh.JPG" alt="Foto de Matheus, Videomaker">
     </div>
-    <div class="sobre-mim-texto">
+    <div class="sobre-mim-texto"data-aos="fade-left">
       <h3>Prazer, sou Matheus</h3>
       <p>
         Para mim, vídeo não é apenas sobre gravar imagens bonitas. É sobre encontrar a alma de uma história e traduzi-la em uma linguagem que emociona, conecta e inspira. Cada projeto é uma tela em branco, uma oportunidade de colaborar e criar algo que não apenas atenda, mas supere as expectativas.
@@ -68,22 +69,22 @@
   <div class="processo-container">
     <h3 class="subtitulo-secao">Meu Processo de Trabalho</h3>
     <div class="processo-grid">
-      <div class="processo-item">
+      <div class="processo-item" data-aos="fade-up" data-aos-delay="100">
         <div class="processo-icone">📋</div>
         <h4>1. Planejamento</h4>
         <p>Tudo começa com uma boa conversa para alinhar ideias, objetivos e referências.</p>
       </div>
-      <div class="processo-item">
+      <div class="processo-item" data-aos="fade-up" data-aos-delay="100">
         <div class="processo-icone">🎬</div>
         <h4>2. Produção</h4>
         <p>É o dia de dar vida ao roteiro, com foco total na captação de imagens e sons incríveis.</p>
       </div>
-      <div class="processo-item">
+      <div class="processo-item" data-aos="fade-up" data-aos-delay="100">
         <div class="processo-icone">✨</div>
         <h4>3. Pós-produção</h4>
         <p>A mágica acontece na edição, onde o material bruto se transforma em uma história coesa.</p>
       </div>
-      <div class="processo-item">
+      <div class="processo-item" data-aos="fade-up" data-aos-delay="100">
         <div class="processo-icone">🚀</div>
         <h4>4. Entrega</h4>
         <p>Você recebe seu vídeo finalizado, pronto para encantar seu público.</p>
@@ -94,21 +95,21 @@
 
 <!-- AREA DOS SERVIÇOS -->
     <section id="servicos" class="container">
-      <h2>Meus Serviços</h2>
+      <h2  data-aos="fade-down">Meus Serviços</h2>
       <p class="section-subtitle">Soluções completas em vídeo, da concepção à entrega final.</p>
 
       <div class="grid servicos-grid">
-        <div class="servico-card">
+        <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
           <div class="servico-icone">🎥</div>
           <h3>Captação e Filmagem</h3>
           <p>Gravação profissional em 4K com equipamentos de ponta para garantir a máxima qualidade de imagem para seu projeto.</p>
         </div>
-        <div class="servico-card">
+        <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
           <div class="servico-icone">✂️</div>
           <h3>Edição e Pós-Produção</h3>
           <p>Edição rítmica, montagem de narrativas e finalização completa para dar vida e profissionalismo ao seu vídeo.</p>
         </div>
-        <div class="servico-card">
+        <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
           <div class="servico-icone">🎨</div>
           <h3>Color Grading</h3>
           <p>Tratamento de cor cinematográfico para criar a atmosfera desejada e garantir uma estética visual impactante e coesa.</p>
@@ -121,35 +122,63 @@
       </div>
     </section>
 
-    <!-- AREA DO CARROSSEL -->
+    <!-- AREA DO CARROSSEL PORTIFOLIO -->
     <section id="portfolio" class="container">
-      <h2>Portfólio</h2>
+  <h2 data-aos="zoom-in">Portfólio</h2>
+  
+  <div class="swiper portfolio-slider"  data-aos="zoom-in-up">
+    <div class="swiper-wrapper">
       
-      <div class="swiper portfolio-slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="portfolio-card">
-              <div class="card-video-container"><iframe src="" title="Vídeo 1" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-              <div class="card-content"><h3 class="card-title">Nome do Projeto 1</h3><p class="card-description">Descrição do projeto 1...</p><div class="card-tags"><span class="tag">Clipe</span></div></div>
+      <div class="swiper-slide">
+        <a href="https://youtu.be/eMztEjtPm4o?si=FC5jYDZ8AyEhwOn3" class="glightbox" data-gallery="portfolio">
+          <div class="portfolio-card">
+            <div class="card-video-container">
+              <img src="img/zion_logo.png" alt="Thumbnail do Projeto 1">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Nome do Projeto 1</h3>
+              <p class="card-description">Descrição do projeto 1...</p>
+              <div class="card-tags"><span class="tag">Clipe</span></div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="portfolio-card">
-              <div class="card-video-container"><iframe src="https://www.youtube.com/embed/ID_DO_VIDEO" title="Vídeo 2" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-              <div class="card-content"><h3 class="card-title">Nome do Projeto 2</h3><p class="card-description">Descrição do projeto 2...</p><div class="card-tags"><span class="tag">Publicidade</span></div></div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="portfolio-card">
-              <div class="card-video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo 3" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
-              <div class="card-content"><h3 class="card-title">Nome do Projeto 3</h3><p class="card-description">Descrição do projeto 3...</p><div class="card-tags"><span class="tag">Casamento</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        </a>
       </div>
-    </section>
+
+      <div class="swiper-slide">
+        <a href="https://youtu.be/eMztEjtPm4o?si=4oOpOBuPAZpRdE6V" class="glightbox" data-gallery="portfolio">
+          <div class="portfolio-card">
+            <div class="card-video-container">
+              <img src="imagens/thumbnail-projeto2.jpg" alt="Thumbnail do Projeto 2">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Nome do Projeto 2</h3>
+              <p class="card-description">Descrição do projeto 2...</p>
+              <div class="card-tags"><span class="tag">Publicidade</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="swiper-slide">
+        <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" class="glightbox" data-gallery="portfolio">
+          <div class="portfolio-card">
+            <div class="card-video-container">
+              <img src="imagens/thumbnail-projeto3.jpg" alt="Thumbnail do Projeto 3">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Nome do Projeto 3</h3>
+              <p class="card-description">Descrição do projeto 3...</p>
+              <div class="card-tags"><span class="tag">Casamento</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
 <!-- FINAL DO CARROSSEL -->
 
 
@@ -159,11 +188,11 @@
       <p class="section-subtitle">Seja para um orçamento, uma ideia ou um simples olá, estou aqui para ajudar. Use o formulário ou entre em contato diretamente.</p>
 
       <div class="contato-direto">
-        <a href="mailto:seuemail@exemplo.com" class="contato-link"><div class="contato-icone">✉️</div><span>seuemail@exemplo.com</span></a>
+        <a href="mailto:zionfilms.audiovisual@gmail.com" class="contato-link"><div class="contato-icone">✉️</div><span>zionfilms.audiovisual@gmail.com</span></a>
         <a href="https://wa.me/554185066974" target="_blank" class="contato-link"><div class="contato-icone">💬</div><span>WhatsApp</span></a>
       </div>
       
-      <form id="form-contato" action="https://formspree.io/f/mdkzpreo" method="post" > 
+      <form id="form-contato" action="https://formspree.io/f/xzzgknrp" method="post" > 
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
@@ -182,12 +211,16 @@
 
 
   <footer class="container">
-    <p>© 2025 ZionFilms        . Todos os direitos reservados.</p>
+    <p>© 2025 ZionFilms     . Todos os direitos reservados.</p>
   </footer>
 
   <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="codigos.js"></script> 
 </body>
 </html>

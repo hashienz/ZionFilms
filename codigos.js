@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   // --- ANIMAÇÃO DE SCROLL (REVELAR SEÇÕES) ---
   // Esta função usa IntersectionObserver para adicionar a classe 'visible'
   // às seções quando elas entram na tela, criando um efeito de "fade in".
@@ -35,6 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
   //   });
   // }
 
+ AOS.init({
+      duration: 800,      // Duração da animação em milissegundos
+      easing: 'ease-in-out', // Curva de aceleração da animação
+      once: true,         // Animação acontece apenas uma vez por elemento
+      delay: 100,         // Atraso geral para o início da animação
+    });
+
+// --- INICIA A GLIGHTBOX ---
+    // Esta linha procura todos os links com a classe 'glightbox' e os ativa.
+    const lightbox = GLightbox({
+        loop: true, // Permite navegar entre os vídeos dentro do lightbox
+    });
+
+    // --- CÓDIGO PARA INICIAR O SLIDER DE PORTFÓLIO (Swiper) ---
+    const swiper = new Swiper('.portfolio-slider', {
+        // ... suas configurações do swiper ...
+    });
 
   // --- ROLAGEM SUAVE AO CLICAR NOS LINKS DO MENU ---
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -53,11 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- EVENTO DE ROLAGEM (MENU ATIVO E BOTÃO "VOLTAR AO TOPO") ---
-  // Combinamos as duas funcionalidades que dependem da rolagem em um único
-  // event listener para otimizar a performance.
   const allSections = document.querySelectorAll('main section');
   const allNavLinks = document.querySelectorAll('nav a');
-  const backToTopBtn = document.getElementById('back-to-top'); // CORREÇÃO: Seleciona o botão do HTML
+  const backToTopBtn = document.getElementById('back-to-top'); 
 
   // Verifica se o botão realmente existe antes de adicionar o evento de clique
   if (backToTopBtn) {
