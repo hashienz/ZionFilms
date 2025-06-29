@@ -281,6 +281,8 @@ header nav a.active {
   object-fit: cover; /* Garante que o vídeo cubra toda a área sem distorcer */
   filter: brightness(0.5); /* Escurece o vídeo para o texto ficar legível */
   z-index: -1; /* Coloca o vídeo atrás do texto */
+  filter: blur(8px) brightness(0.5);
+  transform: scale(1.1);
 }
 
 /* Caixa de texto sobre o vídeo */
@@ -334,6 +336,53 @@ header nav a.active {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+
+/* Container geral para a seção de logos */
+.client-logos {
+    margin-top: 3rem; /* Espaço acima da seção de logos */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória sutil */
+    padding-top: 1.5rem;
+}
+
+/* Título "Trabalhos realizados para:" */
+.logos-title {
+    font-size: 0.8rem;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    letter-spacing: 1.5px; /* Espaçamento entre as letras */
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Container que alinha as imagens das logos */
+.logo-images {
+    display: flex;
+    justify-content: center; /* Centraliza os logos horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+    gap: 3rem; /* Espaço entre os logos */
+    flex-wrap: wrap; /* Permite que os logos quebrem a linha em telas menores */
+}
+
+/* Estilo para cada imagem de logo */
+.logo-images img {
+    height: 35px; /* Define uma altura fixa para todos os logos ficarem uniformes */
+    width: auto;  /* A largura se ajusta para manter a proporção */
+    opacity: 0.7; /* Deixa o logo um pouco sutil */
+    transition: opacity 0.3s ease;
+}
+
+.logo-images img:hover {
+    opacity: 1; /* O logo fica totalmente visível ao passar o mouse */
+}
+.logo-images img {
+    filter: brightness(0) invert(1) grayscale(1);
+    opacity: 0.7;
+}
+
+.logo-images img:hover {
+    opacity: 1;
 }
 
 /* --- 5. SEÇÃO SERVIÇOS --- */
